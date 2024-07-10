@@ -1,0 +1,12 @@
+<div class="container text-center m-5">
+  <div class="col-6 p-3 border m-auto">
+    <h2>商品列表</h2>
+    <% @products.each do |product| %>
+    <div class="border p-3">
+      <p>商品名稱：<%= product.name %></p>
+      <p>商品描述：<%= product.description %></p>
+      <p>商品單價：<%= product.unit_price %>元</p>
+    </div>
+    <% end %>
+  </div>
+</div>
