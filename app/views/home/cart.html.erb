@@ -1,0 +1,31 @@
+<div class="container text-center m-5">
+  <div class="col-6 p-3 border m-auto">
+    <h2>購物車</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr class="table-secondary">
+            <td>產品名稱</td>
+            <td>產品單價</td>
+            <td>產品數量</td>
+            <td>小計</td>
+          </tr>
+        </thead>
+        <% @cart_items.each do |item| %>
+          <tbody>
+            <tr>
+              <td><%= item.product.name %></td>
+              <td><%= item.product.unit_price %></td>
+              <td><%= item.quantity %></td>
+              <td class="text-end"><%= item.product.unit_price * item.quantity %></td>
+            </tr>
+          </tbody>
+        <% end %>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="table-success">總價</td>
+            <td class="text-end"><%= @total_price %></td>
+          </tr>
+        </tfoot>
+      </table>
+  </div>
+</div>

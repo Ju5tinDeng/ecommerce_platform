@@ -1,11 +1,18 @@
 <div class="container text-center m-5">
   <div class="col-6 p-3 border m-auto">
     <h2>商品列表</h2>
+    <div class="text-end"><%= link_to "購物車", cart_path %></div>
     <% @products.each do |product| %>
     <div class="border p-3">
       <p>商品名稱：<%= product.name %></p>
       <p>商品描述：<%= product.description %></p>
       <p>商品單價：<%= product.unit_price %>元</p>
+      <form action="<%= add_item_path %>" method="post">
+        <label for="quantity">數量：</label>
+        <input type="hidden" name="product_id" value="<%= product.id %>">
+        <input type="number" id="quantity" name="quantity" min="1" max="999" value="1" class="text-center">
+        <button type="submit">加入購物車</button>
+      </form>
     </div>
     <% end %>
   </div>
