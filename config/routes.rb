@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   post "/add_item", to: "home#add_item"
   get "/cart", to: "home#cart"
+
+  resources :home, only: [:index]
 end

@@ -18,5 +18,8 @@ class HomeController < ApplicationController
   def cart
     @cart_items = CartItem.includes(:product).order(updated_at: :desc)
     @total_price = CartItem.total_price(@cart_items)
+    @item_desc = CartItem.all.map { |item| "#{item.product.name} x #{item.quantity}" }.join(" ; ")
+
+    @form_info = Newebpay.new.form_info
   end
 end
