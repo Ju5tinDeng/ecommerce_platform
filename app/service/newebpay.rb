@@ -23,7 +23,7 @@ class Newebpay
     info[:MerchantOrderNo] = @merchant_order_no
     info[:Amt] = @total_price
     info[:ItemDesc] = @item_desc
-    info[:ReturnURL] = ''
+    info[:ReturnURL] = "https://#{ENV['DOMAIN']}/orders/notify"
   end
 
   def encoded_info

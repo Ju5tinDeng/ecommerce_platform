@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   get "/cart", to: "home#cart"
 
   resources :home, only: [:index]
+  resources :orders do
+    collection do
+      post :notify 
+    end
+  end
 end
